@@ -21,13 +21,17 @@ public class SparkSendEmail implements EmailSenderGateway {
     
     @Override
     public void sendEmail(String to, String subject, String body) {
+        
+        String from = "ian@email.thisistheway.com.br";
+        String html = "<html><body><p>Testing AmazonSeS - the most awesomest email service!</p></body></html>";
+        
         try {
             Response response = client.sendMessage(
+                from,
                 to,
                 subject,
-                "Hello there",
                 body,
-                "<html><body><p>Testing SparkPost - the most awesomest email service!</p></body></html>"
+                html
             );
             System.out.println(response);
         }

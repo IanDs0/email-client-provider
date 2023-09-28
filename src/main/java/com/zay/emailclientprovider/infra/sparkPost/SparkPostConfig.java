@@ -9,11 +9,11 @@ import com.sparkpost.Client;
 @Configuration
 public class SparkPostConfig {
     
-    @Value("${SPARK_POST}")
-    private String SPARK_POST;
+    @Value("${spark_post.secretKey}")
+    private String secretKey;
     
     @Bean
     public Client client(){
-        return new Client(SPARK_POST);
+        return new Client(secretKey);
     }
 }
