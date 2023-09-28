@@ -23,14 +23,14 @@ public class SparkSendEmail implements EmailSenderGateway {
     public void sendEmail(String to, String subject, String body) {
         
         String from = "ian@email.thisistheway.com.br";
-        String html = "<html><body><p>Testing AmazonSeS - the most awesomest email service!</p></body></html>";
+        String html = "<html><body><p>"+body+"</p><p>Testing SparkPost - the most awesomest email service!</p></body></html>";
         
         try {
             Response response = client.sendMessage(
                 from,
                 to,
                 subject,
-                body,
+                "",
                 html
             );
             System.out.println(response);
