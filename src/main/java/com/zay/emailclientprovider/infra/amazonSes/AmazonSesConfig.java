@@ -23,8 +23,6 @@ public class AmazonSesConfig {
 
     @Bean
     public AmazonSimpleEmailService amazonSimpleEmailService() {
-        
-        System.out.println("awsAccessKeyId: " + accessKey);
         return AmazonSimpleEmailServiceClientBuilder
             .standard()
             .withCredentials(

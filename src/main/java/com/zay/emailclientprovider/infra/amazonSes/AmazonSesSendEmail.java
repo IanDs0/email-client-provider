@@ -27,7 +27,7 @@ public class AmazonSesSendEmail implements EmailSenderGateway {
     public void sendEmail(String to, String subject, String body) {
 
         String from = "ian@email.thisistheway.com.br";
-        String html = "<html><body><p>Testing AmazonSeS - the most awesomest email service!</p></body></html>";
+        String html = "<html><body><p>"+body+"</p><p>Testing AmazonSeS - the most awesomest email service!</p></body></html>";
 
         SendEmailRequest request = new SendEmailRequest()
             .withSource(from)
@@ -42,9 +42,6 @@ public class AmazonSesSendEmail implements EmailSenderGateway {
                 )
                 .withBody(
                     new Body()
-                        .withText(
-                            new Content(body)
-                        )
                         .withHtml(
                             new Content(html)
                         )
