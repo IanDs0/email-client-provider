@@ -13,7 +13,7 @@ import com.amazonaws.services.simpleemail.model.SendEmailRequest;
 import com.zay.emailclientprovider.adapters.EmailSenderGateway;
 import com.zay.emailclientprovider.core.exceptions.EmailServerException;
 
-@Service
+@Service("amazonSesSendEmail")
 public class AmazonSesSendEmail implements EmailSenderGateway {
     
     private final AmazonSimpleEmailService simpleEmailService;
@@ -51,7 +51,7 @@ public class AmazonSesSendEmail implements EmailSenderGateway {
             try {
                 this.simpleEmailService.sendEmail(request);
             } catch (AmazonServiceException e) {
-                throw new EmailServerException("e.getMessage()", e);
+                throw new EmailServerException(e.getErrorMessage());
             }
 
     }

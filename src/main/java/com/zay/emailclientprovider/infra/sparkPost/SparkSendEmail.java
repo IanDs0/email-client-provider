@@ -9,7 +9,7 @@ import com.sparkpost.Client;
 import com.sparkpost.exception.SparkPostException;
 import com.sparkpost.model.responses.Response;
 
-@Service
+@Service("sparkSendEmail")
 public class SparkSendEmail implements EmailSenderGateway {
 
     private final Client client;
@@ -33,7 +33,6 @@ public class SparkSendEmail implements EmailSenderGateway {
                 "",
                 html
             );
-            System.out.println(response);
         }
         catch (SparkPostException e) {
             throw new EmailServerException(e.getMessage());
